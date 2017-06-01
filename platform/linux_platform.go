@@ -613,10 +613,10 @@ func (p linux) SetupEphemeralDiskWithPath(realPath string, desiredSwapSizeInByte
 		}
 	}
 
-	p.logger.Info(logTag, "Formatting `%s' as ext4", dataPartitionPath)
-	err = p.diskManager.GetFormatter().Format(dataPartitionPath, boshdisk.FileSystemExt4)
+	p.logger.Info(logTag, "Formatting `%s' as xfs", dataPartitionPath)
+	err = p.diskManager.GetFormatter().Format(dataPartitionPath, boshdisk.FileSystemXFS)
 	if err != nil {
-		return bosherr.WrapError(err, "Formatting data partition with ext4")
+		return bosherr.WrapError(err, "Formatting data partition with xfs")
 	}
 
 	if len(swapPartitionPath) > 0 {
