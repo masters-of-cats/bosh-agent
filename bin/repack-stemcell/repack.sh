@@ -44,7 +44,7 @@ echo "$STEMCELL_SHA1  $stemcell_tgz" | shasum -c -
 		mkdir $mnt_dir
 		mount -o loop,offset=32256 root.img $mnt_dir
 		echo -n 0.0.${new_ver} > $mnt_dir/var/vcap/bosh/etc/stemcell_version
-		cp /tmp/build/*/agent-src/install-new-kernel $mnt_dir/tmp/
+		cp /tmp/build/*/agent-src/install-new-kernel.sh $mnt_dir/tmp/
 		# cp /tmp/build/*/agent-src/bin/bosh-agent $mnt_dir/var/vcap/bosh/bin/bosh-agent
 
 		if [ -n "$BOSH_DEBUG_PUB_KEY" ]; then
