@@ -82,6 +82,8 @@ EOF
 
 			 sudo chroot $mnt_dir /bin/bash <<EOF
 			   echo "nameserver 8.8.8.8" > /etc/resolv.conf
+			   apt-get update
+			   apt-get install libelf1 libelf1-dev -y
 			   /tmp/install-new-kernel.sh 4.6.7-040607-generic_4.6.7-040607.201608160432
 EOF
     fi
